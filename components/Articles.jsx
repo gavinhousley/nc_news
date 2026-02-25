@@ -20,29 +20,20 @@ function Articles() {
   }, []);
   return (
     <div className="articles-main">
-      <table>
-        <thead>
-          <tr>
-            <th>image</th>
-            <th>author</th>
-            <th>title</th>
-            <th>topic</th>
-            <th>date created</th>
-          </tr>
-        </thead>
-        <tbody>
-          {articles.map((art) => (
-            <ArtCard
-              key={art.article_id}
-              image={art.article_img_url}
-              author={art.author}
-              title={art.title}
-              topic={art.topic}
-              released={art.created_at}
-            />
-          ))}
-        </tbody>
-      </table>
+      <div>
+        {articles.map((art) => (
+          <ArtCard
+            key={art.article_id}
+            image={art.article_img_url}
+            author={art.author}
+            title={art.title}
+            topic={art.topic}
+            released={new Date(art.created_at).toLocaleDateString()}
+            commentCount={art.comment_count}
+            votes={art.votes}
+          />
+        ))}
+      </div>
     </div>
   );
 }
