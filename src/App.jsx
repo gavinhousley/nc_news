@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Articles from "../components/Articles";
+import SingleArticle from "../components/SingleArticle";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,6 +16,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Articles />} />
+        <Route path="/articles/:article_id" element={<SingleArticle />} />
       </Routes>
     </>
   );

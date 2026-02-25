@@ -31,3 +31,19 @@ h1 {
 .art-row {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+
+table {
+  table-layout: fixed;
+  width: 90%;
+  margin: 10px auto;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.6em;
+  background-color: blanchedalmond;
+  border: 2px solid rgb(135, 82, 82);
+}
+tr {
+}

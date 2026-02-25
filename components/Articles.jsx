@@ -23,6 +23,7 @@ function Articles() {
       <table>
         <thead>
           <tr>
+            <th>image</th>
             <th>author</th>
             <th>title</th>
             <th>topic</th>
@@ -33,6 +34,7 @@ function Articles() {
           {articles.map((art) => (
             <ArtCard
               key={art.article_id}
+              image={art.article_img_url}
               author={art.author}
               title={art.title}
               topic={art.topic}
