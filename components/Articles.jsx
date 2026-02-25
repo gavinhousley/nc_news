@@ -4,6 +4,7 @@ import ArtCard from "./ArtCard";
 
 function Articles() {
   const [articles, setArticles] = useState([]);
+  const [singleArticle, setSingleArticle] = useState([]);
   useEffect(() => {
     // want it to be async but can't directly
     // I'll make my own (wrap it)
