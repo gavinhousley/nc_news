@@ -94,3 +94,30 @@ h1 {
   width: 100%;
   font-size: 0.8rem;
 }
+
+.comment-card {
+  font-size: 0.8rem;
+  width: 60%;
+  display: grid;
+  justify-self: end;
+  gap: 0.6rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: rgb(243, 243, 243);
+  border-radius: 0.7rem;
+}
+
+.comment-votes {
+  text-align: right;
+  width: 100%;
+  font-size: 0.8rem;
+}
+.comment-released {
+  text-align: right;
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+.comment-author {
+  color: rgb(64, 100, 165);
+}

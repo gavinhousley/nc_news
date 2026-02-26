@@ -38,7 +38,7 @@ function Comments() {
           key={comment.comment_id}
           author={comment.author}
           body={comment.body}
-          //   released={new Date(comment.created_at).toLocaleDateString()}
+          released={new Date(comment.created_at).toLocaleDateString()}
           votes={comment.votes}
         />
       ))}
