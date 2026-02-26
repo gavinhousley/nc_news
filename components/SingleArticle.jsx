@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import FullArtCard from "./FullArtCard";
 import { useEffect, useState } from "react";
+import Comments from "./Comments";
 
 function SingleArticle() {
   const [singleArticle, setSingleArticle] = useState(null);
@@ -31,22 +32,28 @@ function SingleArticle() {
   if (isLoading) {
     return <p>Loading...</p>;
   }
+
   return (
-    <div className="single-article">
-      <div>
-        <FullArtCard
-          key={singleArticle.article_id}
-          image={singleArticle.article_img_url}
-          author={singleArticle.author}
-          title={singleArticle.title}
-          topic={singleArticle.topic}
-          body={singleArticle.body}
-          released={new Date(singleArticle.created_at).toLocaleDateString()}
-          commentCount={singleArticle.comment_count}
-          votes={singleArticle.votes}
-        />
+    <>
+      <div className="single-article">
+        <div>
+          <FullArtCard
+            key={singleArticle.article_id}
+            image={singleArticle.article_img_url}
+            author={singleArticle.author}
+            title={singleArticle.title}
+            topic={singleArticle.topic}
+            body={singleArticle.body}
+            released={new Date(singleArticle.created_at).toLocaleDateString()}
+            commentCount={singleArticle.comment_count}
+            votes={singleArticle.votes}
+          />
+        </div>
       </div>
-    </div>
+      <div className="comments-list">
+        <Comments />
+      </div>
+    </>
   );
 }
 

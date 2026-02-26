@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Articles from "../components/Articles";
 import SingleArticle from "../components/SingleArticle";
+import Comments from "../components/Comments";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -40,6 +41,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Articles articles={articles} />} />
         <Route path="/articles/:article_id" element={<SingleArticle />} />
+        <Route path="/articles/:article_id/comments" element={<Comments />} />
       </Routes>
     </>
   );
