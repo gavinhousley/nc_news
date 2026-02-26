@@ -1,35 +1,49 @@
-import { Link } from "react";
-import { useState } from "react";
 import { useParams } from "react-router";
+import FullArtCard from "./FullArtCard";
+import { useEffect, useState } from "react";
 
-function SingleArticle(article_id) {
-  const [article, setArticle] = useState([]);
+function SingleArticle() {
+  const [singleArticle, setSingleArticle] = useState(null);
+  const [isLoading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { article_id } = useParams();
+
   useEffect(() => {
-    // want it to be async but can't directly
-    // I'll make my own (wrap it)
-    async function getArticle(article_id) {
-      const response = await fetch(
-        `https://back-end-nc-news-5cp2.onrender.com/api/articles/${article_id}`,
-      );
-      const article = await response.json();
-      setArticle(article || []);
-      return article;
+    async function fetchSingleArticle() {
+      setLoading(true);
+      try {
+        const response = await fetch(
+          `https://back-end-nc-news-5cp2.onrender.com/api/articles/${article_id}`,
+        );
+
+        const data = await response.json();
+        setSingleArticle(data.article);
+        setError(null);
+      } catch (err) {
+        setError(err);
+        setArticles(null);
+      } finally {
+        setLoading(false);
+      }
     }
-    getArticle();
+    fetchSingleArticle();
   }, []);
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
   return (
     <div className="single-article">
       <div>
         <FullArtCard
-          key={art.article_id}
-          image={art.article_img_url}
-          author={art.author}
-          title={art.title}
-          topic={art.topic}
-          body={art.body}
-          released={new Date(art.created_at).toLocaleDateString()}
-          commentCount={art.comment_count}
-          votes={art.votes}
+          key={singleArticle.article_id}
+          image={singleArticle.article_img_url}
+          author={singleArticle.author}
+          title={singleArticle.title}
+          topic={singleArticle.topic}
+          body={singleArticle.body}
+          released={new Date(singleArticle.created_at).toLocaleDateString()}
+          commentCount={singleArticle.comment_count}
+          votes={singleArticle.votes}
         />
       </div>
     </div>

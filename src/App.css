@@ -35,6 +35,10 @@ h1 {
   max-width: 800px;
   margin: 0 auto;
 }
+.articles-main a {
+  text-decoration: none;
+  color: black;
+}
 .art-card {
   display: grid;
   grid-template-columns: 150px 1fr; /* image column fixed, info column fills rest */
