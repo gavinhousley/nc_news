@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import ArtCard from "./ArtCard";
 
 function Articles({ articles }) {
+  console.log(articles);
   return (
     <div className="articles-main">
       <div>

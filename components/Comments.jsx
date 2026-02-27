@@ -31,6 +31,27 @@ function Comments() {
   if (isLoading) {
     return <p>Loading...</p>;
   }
+
+  //  async function PostComment() {
+  //     const {};
+  //     try {
+  //       const response = await fetch(
+  //         `https://back-end-nc-news-5cp2.onrender.com/api/articles/${article_id}/comments`,
+  //         {
+  //           method: "POST",
+  //           headers: { "Content-Type": "application/json" },
+  //           body: JSON.stringify({ username: userName, body: commentBody} ),
+  //         },
+  //       );
+  //       if (!response.ok) {
+  //         throw new Error("new comment not registering");
+  //       }
+  //     } catch (err) {
+  //       setSingleArticle({ ...singleArticle, votes: singleArticle.votes - num });
+  //     }
+  //   }
+  const commentsLength = comments.length;
+
   return (
     <>
       <div className="comments">

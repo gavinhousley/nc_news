@@ -2,7 +2,6 @@ import { useParams } from "react-router";
 import FullArtCard from "./FullArtCard";
 import { useEffect, useState } from "react";
 import Comments from "./Comments";
-import Voter from "./Voter";
 
 function SingleArticle() {
   const [singleArticle, setSingleArticle] = useState(null);
@@ -52,7 +51,7 @@ function SingleArticle() {
       setSingleArticle({ ...singleArticle, votes: singleArticle.votes - num });
     }
   }
-
+  console.log(singleArticle);
   return (
     <>
       <div className="single-article">
