@@ -51,25 +51,23 @@ function SingleArticle() {
       setSingleArticle({ ...singleArticle, votes: singleArticle.votes - num });
     }
   }
-  console.log(singleArticle);
   return (
     <>
       <div className="single-article">
-        <div>
-          <FullArtCard
-            key={singleArticle.article_id}
-            image={singleArticle.article_img_url}
-            author={singleArticle.author}
-            title={singleArticle.title}
-            topic={singleArticle.topic}
-            body={singleArticle.body}
-            released={new Date(singleArticle.created_at).toLocaleDateString()}
-            changeVote={changeVote}
-            commentCount={singleArticle.comment_count}
-            votes={singleArticle.votes}
-          />
-        </div>
+        <FullArtCard
+          key={singleArticle.article_id}
+          image={singleArticle.article_img_url}
+          author={singleArticle.author}
+          title={singleArticle.title}
+          topic={singleArticle.topic}
+          body={singleArticle.body}
+          released={new Date(singleArticle.created_at).toLocaleDateString()}
+          changeVote={changeVote}
+          commentCount={singleArticle.comment_count}
+          votes={singleArticle.votes}
+        />
       </div>
+
       <div className="comments-list">
         <Comments />
       </div>

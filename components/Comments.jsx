@@ -3,9 +3,13 @@ import { useEffect, useState } from "react";
 import CommentCard from "./CommentCard.jsx";
 
 function Comments() {
+  const [showForm, setShowForm] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [comBody, setComBody] = useState("");
   const [comments, setComments] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -32,29 +36,53 @@ function Comments() {
     return <p>Loading...</p>;
   }
 
-  //  async function PostComment() {
-  //     const {};
-  //     try {
-  //       const response = await fetch(
-  //         `https://back-end-nc-news-5cp2.onrender.com/api/articles/${article_id}/comments`,
-  //         {
-  //           method: "POST",
-  //           headers: { "Content-Type": "application/json" },
-  //           body: JSON.stringify({ username: userName, body: commentBody} ),
-  //         },
-  //       );
-  //       if (!response.ok) {
-  //         throw new Error("new comment not registering");
-  //       }
-  //     } catch (err) {
-  //       setSingleArticle({ ...singleArticle, votes: singleArticle.votes - num });
-  //     }
-  //   }
-  const commentsLength = comments.length;
+  async function postComment(e) {
+    e.preventDefault();
+    console.log({ username: userName, body: comBody });
+    try {
+      const response = await fetch(
+        `https://back-end-nc-news-5cp2.onrender.com/api/articles/${article_id}/comments`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username: userName, body: comBody }),
+        },
+      );
+      if (!response.ok) {
+        throw new Error("new comment not registering");
+      }
+      console.log(response);
+    } catch (err) {}
+  }
 
   return (
     <>
       <div className="comments">
+        <button className="add-comment" onClick={() => setShowForm(true)}>
+          Add new comment
+        </button>
+        {showForm && (
+          <form className="comment-form" onSubmit={postComment}>
+            <h3>add Comment</h3>
+            <label>
+              Username:
+              <input
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+                type="text"
+              />
+            </label>
+            <label>
+              Comment:
+              <input
+                value={comBody}
+                onChange={(e) => setComBody(e.target.value)}
+                type="text"
+              />
+            </label>
+            <button type="submit">submit</button>
+          </form>
+        )}
         {comments.map((comment) => (
           <CommentCard
             key={comment.comment_id}

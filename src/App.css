@@ -137,3 +137,16 @@ h1 {
   color: white;
   cursor: pointer;
 }
+
+.add-comment {
+  font-size: 0.8rem;
+  background-color: rgb(64, 100, 165);
+  border-radius: 0.7rem;
+  width: 20%;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  color: white;
+  border-color: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
