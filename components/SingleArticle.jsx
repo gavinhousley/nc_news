@@ -2,6 +2,7 @@ import { useParams } from "react-router";
 import FullArtCard from "./FullArtCard";
 import { useEffect, useState } from "react";
 import Comments from "./Comments";
+import Voter from "./Voter";
 
 function SingleArticle() {
   const [singleArticle, setSingleArticle] = useState(null);
@@ -33,6 +34,25 @@ function SingleArticle() {
     return <p>Loading...</p>;
   }
 
+  async function changeVote(num) {
+    setSingleArticle({ ...singleArticle, votes: singleArticle.votes + num });
+    try {
+      const response = await fetch(
+        `https://back-end-nc-news-5cp2.onrender.com/api/articles/${article_id}`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ inc_votes: num }),
+        },
+      );
+      if (!response.ok) {
+        throw new Error("vote not registering");
+      }
+    } catch (err) {
+      setSingleArticle({ ...singleArticle, votes: singleArticle.votes - num });
+    }
+  }
+
   return (
     <>
       <div className="single-article">
@@ -45,6 +65,7 @@ function SingleArticle() {
             topic={singleArticle.topic}
             body={singleArticle.body}
             released={new Date(singleArticle.created_at).toLocaleDateString()}
+            changeVote={changeVote}
             commentCount={singleArticle.comment_count}
             votes={singleArticle.votes}
           />

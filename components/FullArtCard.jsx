@@ -1,3 +1,5 @@
+import Voter from "./Voter";
+
 const FullArtCard = ({
   image,
   author,
@@ -5,6 +7,7 @@ const FullArtCard = ({
   topic,
   body,
   released,
+  changeVote,
   commentCount,
   votes,
 }) => {
@@ -19,6 +22,7 @@ const FullArtCard = ({
         <span className="art-author">{author}</span>
         <span className="art-title">{title}</span>
         <span className="art-body">{body}</span>
+        <Voter changeVote={changeVote} />
         <span className="art-comment-count">Comment count: {commentCount}</span>
         <span className="art-votes">No. of Votes: {votes}</span>
       </div>

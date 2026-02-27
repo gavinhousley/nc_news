@@ -121,3 +121,19 @@ h1 {
 .comment-author {
   color: rgb(64, 100, 165);
 }
+
+.thumb-up {
+  border: 0px;
+  font-size: 1.8rem;
+  padding-top: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.thumb-down {
+  border: 0px;
+  font-size: 1.8rem;
+  padding-top: 10px;
+  color: white;
+  cursor: pointer;
+}

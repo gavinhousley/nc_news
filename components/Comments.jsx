@@ -32,17 +32,19 @@ function Comments() {
     return <p>Loading...</p>;
   }
   return (
-    <div className="comments">
-      {comments.map((comment) => (
-        <CommentCard
-          key={comment.comment_id}
-          author={comment.author}
-          body={comment.body}
-          released={new Date(comment.created_at).toLocaleDateString()}
-          votes={comment.votes}
-        />
-      ))}
-    </div>
+    <>
+      <div className="comments">
+        {comments.map((comment) => (
+          <CommentCard
+            key={comment.comment_id}
+            author={comment.author}
+            body={comment.body}
+            released={new Date(comment.created_at).toLocaleDateString()}
+            votes={comment.votes}
+          />
+        ))}
+      </div>
+    </>
   );
 }
 
