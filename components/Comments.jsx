@@ -9,6 +9,7 @@ function Comments() {
   const [comments, setComments] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [status, setStatus] = useState(null);
 
   const { article_id } = useParams();
 
@@ -38,7 +39,6 @@ function Comments() {
 
   async function postComment(e) {
     e.preventDefault();
-    console.log({ username: userName, body: comBody });
     try {
       const response = await fetch(
         `https://back-end-nc-news-5cp2.onrender.com/api/articles/${article_id}/comments`,
@@ -51,8 +51,12 @@ function Comments() {
       if (!response.ok) {
         throw new Error("new comment not registering");
       }
-      console.log(response);
-    } catch (err) {}
+      if (response.ok) {
+        setStatus("success");
+      }
+    } catch (err) {
+      setStatus("error");
+    }
   }
 
   return (
@@ -70,6 +74,7 @@ function Comments() {
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
                 type="text"
+                required
               />
             </label>
             <label>
@@ -78,11 +83,20 @@ function Comments() {
                 value={comBody}
                 onChange={(e) => setComBody(e.target.value)}
                 type="text"
+                required
               />
             </label>
             <button type="submit">submit</button>
           </form>
         )}
+
+        {status === "success" && <p>Your comment has been posted.</p>}
+        {status === "error" && (
+          <p style={{ color: "red" }}>
+            There has been an error. Please try again.
+          </p>
+        )}
+
         {comments.map((comment) => (
           <CommentCard
             key={comment.comment_id}
