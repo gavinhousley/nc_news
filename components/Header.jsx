@@ -1,3 +1,5 @@
+import LoginInfo from "./LoginInfo";
+
 function Header() {
   return (
     <header>
@@ -7,6 +9,7 @@ function Header() {
         alt="Northcoders News Logo"
       />
       <h1>Northcoders News</h1>
+      <LoginInfo />
     </header>
   );
 }

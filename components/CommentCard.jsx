@@ -1,4 +1,18 @@
-const CommentCard = ({ author, title, body, votes, released }) => {
+import { useContext } from "react";
+import { UserContext } from "./context/User";
+import DeleteComment from "./DeleteComment";
+
+const CommentCard = ({
+  author,
+  title,
+  body,
+  votes,
+  released,
+  removeComment,
+  comment_id,
+}) => {
+  const { loggedInUser } = useContext(UserContext);
+
   return (
     <div className="comment-card">
       <span className="comment-author">{author}</span>
@@ -6,6 +20,9 @@ const CommentCard = ({ author, title, body, votes, released }) => {
       <span className="comment-title">{title}</span>
       <span className="comment-body">{body}</span>
       <span className="comment-votes">No. of Votes: {votes}</span>
+      {author === loggedInUser.username && (
+        <DeleteComment comment_id={comment_id} removeComment={removeComment} />
+      )}
     </div>
   );
 };

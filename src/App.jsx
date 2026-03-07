@@ -1,5 +1,6 @@
 import { useState, useEffect, use } from "react";
 import { Route, Routes } from "react-router";
+import { UserProvider } from "../components/context/User";
 
 import "./App.css";
 import Header from "../components/Header";
@@ -35,7 +36,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <UserProvider>
       <Header />
       <Nav />
       <Routes>
@@ -43,7 +44,7 @@ function App() {
         <Route path="/articles/:article_id" element={<SingleArticle />} />
         <Route path="/articles/:article_id/comments" element={<Comments />} />
       </Routes>
-    </>
+    </UserProvider>
   );
 }
 

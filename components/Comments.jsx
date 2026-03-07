@@ -6,7 +6,7 @@ function Comments() {
   const [showForm, setShowForm] = useState(false);
   const [userName, setUserName] = useState("");
   const [comBody, setComBody] = useState("");
-  const [comments, setComments] = useState(null);
+  const [comments, setComments] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [status, setStatus] = useState(null);
@@ -32,7 +32,7 @@ function Comments() {
       }
     }
     getComments();
-  }, []);
+  }, [article_id]);
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -51,12 +51,21 @@ function Comments() {
       if (!response.ok) {
         throw new Error("new comment not registering");
       }
-      if (response.ok) {
-        setStatus("success");
-      }
+      const data = await response.json();
+      console.log(data);
+      setComments([data.comment, ...comments]);
+      setStatus("success");
+      setUserName("");
+      setComBody("");
     } catch (err) {
       setStatus("error");
     }
+  }
+
+  function removeComment(comment_id) {
+    setComments(
+      comments.filter((comment) => comment.comment_id !== comment_id),
+    );
   }
 
   return (
@@ -68,6 +77,7 @@ function Comments() {
         {showForm && (
           <form className="comment-form" onSubmit={postComment}>
             <h3>add Comment</h3>
+            <p>You are logged in as tickle122</p>
             <label>
               Username:
               <input
@@ -104,6 +114,8 @@ function Comments() {
             body={comment.body}
             released={new Date(comment.created_at).toLocaleDateString()}
             votes={comment.votes}
+            comment_id={comment.comment_id}
+            removeComment={removeComment}
           />
         ))}
       </div>
