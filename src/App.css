@@ -161,3 +161,13 @@ h1 {
   text-align: right;
   padding: 0;
 }
+
+.topic-card {
+  display: grid;
+  grid-template-columns: 150px 1fr; /* image column fixed, info column fills rest */
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: rgb(243, 243, 243);
+  border-radius: 0.7rem;
+}

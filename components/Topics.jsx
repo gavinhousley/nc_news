@@ -26,7 +26,7 @@ function Topics() {
     <div className="topics-main">
       <div>
         {topics.map((topic) => (
-          <Link key={topic.topic_id} to={`/topics/${topic.topic_id}`}>
+          <Link key={topic.topic_id} to={`/articles/topic/${topic.slug}`}>
             <TopicCard
               key={topic.topic_id}
               slug={topic.slug}

@@ -1,4 +1,3 @@
-import { useState, useEffect, use } from "react";
 import { Route, Routes } from "react-router";
 import { UserProvider } from "../components/context/User";
 
@@ -11,40 +10,16 @@ import Comments from "../components/Comments";
 import Topics from "../components/Topics";
 
 function App() {
-  const [articles, setArticles] = useState([]);
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    async function fetchArticles() {
-      setLoading(true);
-      try {
-        const response = await fetch(
-          "https://back-end-nc-news-5cp2.onrender.com/api/articles",
-        );
-
-        const data = await response.json();
-        setArticles(data.articles);
-        setError(null);
-      } catch (err) {
-        setError(err);
-        setArticles(null);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchArticles();
-  }, []);
-
   return (
     <UserProvider>
       <Header />
       <Nav />
       <Routes>
-        <Route path="/" element={<Articles articles={articles} />} />
+        <Route path="/" element={<Articles />} />
         <Route path="/articles/:article_id" element={<SingleArticle />} />
         <Route path="/articles/:article_id/comments" element={<Comments />} />
         <Route path="/topics" element={<Topics />} />
+        <Route path="/articles/topic/:topic" element={<Articles />} />
       </Routes>
     </UserProvider>
   );
