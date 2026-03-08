@@ -31,6 +31,11 @@ h1 {
   font-size: 1.2rem;
 }
 
+.nav-link2 {
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
 .articles-main {
   max-width: 800px;
   margin: 0 auto;

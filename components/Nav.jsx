@@ -7,7 +7,9 @@ function Nav() {
         <Link to="/" className="nav-link">
           Articles
         </Link>
-        <li>Topics</li>
+        <Link to="/topics" className="nav-link2">
+          Topics
+        </Link>
         <li>Users</li>
       </ul>
     </nav>

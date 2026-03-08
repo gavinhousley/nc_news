@@ -52,7 +52,6 @@ function Comments() {
         throw new Error("new comment not registering");
       }
       const data = await response.json();
-      console.log(data);
       setComments([data.comment, ...comments]);
       setStatus("success");
       setUserName("");
