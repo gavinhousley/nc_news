@@ -19,23 +19,24 @@ h1 {
   display: block;
 }
 
-.nav-list li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 5%;
-  font-size: 1.2rem;
+.nav-list ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 5px;
 }
 
 .nav-link {
   text-decoration: none;
   font-size: 1.2rem;
+  color: black;
 }
 
-.nav-link2 {
-  text-decoration: none;
-  font-size: 1.2rem;
+.nav-link:hover {
+  text-decoration: underline;
 }
-
 .articles-main {
   max-width: 800px;
   margin: 0 auto;
@@ -179,4 +180,38 @@ h1 {
   gap: 1rem;
   margin-bottom: 1rem;
   text-align: right;
+}
+
+.topic-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.topic-card-link:hover .topics-slug {
+  text-decoration: underline;
+}
+
+.topic-card a,
+.topic-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.topic-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  cursor: pointer;
+}
+
+.topics-slug {
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.topic-description {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: #666;
 }
