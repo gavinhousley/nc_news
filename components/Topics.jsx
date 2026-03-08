@@ -16,7 +16,6 @@ function Topics() {
 
         const data = await response.json();
         setTopics(data.topics);
-        console.log(data);
       } catch (err) {}
     }
     getTopics();
