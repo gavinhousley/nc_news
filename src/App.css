@@ -171,3 +171,12 @@ h1 {
   background-color: rgb(243, 243, 243);
   border-radius: 0.7rem;
 }
+
+.sort-controls {
+  appearance: none;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  text-align: right;
+}

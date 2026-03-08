@@ -18,11 +18,14 @@ function SingleArticle() {
         );
 
         const data = await response.json();
+        if (!response.ok) {
+          throw new Error(data.msg || "Article not found");
+        }
         setSingleArticle(data.article);
         setError(null);
       } catch (err) {
         setError(err);
-        setArticles(null);
+        setSingleArticle(null);
       } finally {
         setLoading(false);
       }
@@ -31,6 +34,10 @@ function SingleArticle() {
   }, []);
   if (isLoading) {
     return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Sorry, that article does not exist.</p>;
   }
 
   async function changeVote(num) {

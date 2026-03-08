@@ -8,6 +8,7 @@ import Articles from "../components/Articles";
 import SingleArticle from "../components/SingleArticle";
 import Comments from "../components/Comments";
 import Topics from "../components/Topics";
+import NotFound from "../components/NotFound";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/articles/:article_id/comments" element={<Comments />} />
         <Route path="/topics" element={<Topics />} />
         <Route path="/articles/topic/:topic" element={<Articles />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </UserProvider>
   );
