@@ -1,10 +1,10 @@
+# NC News App
+
+The app is an article and comment based site which is reminiscent of sites like reddit. You can navigate articles, vote on them, and add comments as the logged in user.
+
 ### Link to the deployed version:
 
 https://gavins-northcoders-news.netlify.app
-
-### NC News App
-
-The app is an article and comment based site which is reminiscent of sites like reddit. You can navigate articles, vote on them, and add comments as the logged in user.
 
 ### Back End Repo
 
