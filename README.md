@@ -1,16 +1,31 @@
-# React + Vite
+### Link to the deployed version:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://gavins-northcoders-news.netlify.app
 
-Currently, two official plugins are available:
+### NC News App
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app is an article and comment based site which is reminiscent of sites like reddit. You can navigate articles, vote on them, and add comments as the logged in user.
 
-## React Compiler
+### Back End Repo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+https://github.com/gavinhousley/back-end-nc-news
 
-## Expanding the ESLint configuration
+This is the backend repo that the NC News front end connects to. The database uses PostgreSQL, and is hosted on supabase, the server is hosted on render, so it may take a little time to fire up if it's been inactive for a while.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Node version
+
+You will need to run at least Node v25.1.0 to run this locally.
+
+### To run the project locally
+
+Git clone the repo:
+
+https://github.com/gavinhousley/nc_news
+
+npm install to install the dependencies, it is a react / vite project.
+
+cd nc_news
+npm install
+npm run dev - will initiate vite and it will start a local connection.
+
+This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/)
