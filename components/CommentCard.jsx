@@ -4,6 +4,7 @@ import DeleteComment from "./DeleteComment";
 
 const CommentCard = ({
   author,
+  avatar,
   title,
   body,
   votes,
@@ -15,7 +16,16 @@ const CommentCard = ({
 
   return (
     <div className="comment-card">
-      <span className="comment-author">{author}</span>
+      <div className="comment-author">
+        {avatar ? (
+          <img className="comment-avatar" src={avatar} alt="" />
+        ) : (
+          <span className="comment-avatar comment-avatar-fallback">
+            {author[0]}
+          </span>
+        )}
+        <span>{author}</span>
+      </div>
       <span className="comment-released">{released}</span>
       <span className="comment-title">{title}</span>
       <span className="comment-body">{body}</span>
